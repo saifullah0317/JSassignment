@@ -1,17 +1,11 @@
-function make_car(manufacturer,model,options)
+function make_car(manufacturer1,model1)
 {
-    car_dict={
-        'manufacturer': manufacturer.title(),
-        'model':model.title(),
-    }
-    for(var i=0;i<options.items().length;i++)
+    var obj={manufacturer:manufacturer1,model:model1}
+    for(var i=2;i<arguments.length;i++)
     {
-        car_dict[i]=options.items()[i]
+        Object.assign(obj,arguments[i])
     }
-    return car_dict
+    return obj
 }
-my_outback = make_car('subaru', 'outback', color='blue', tow_package=true)
-console.log(my_outback)
-
-my_accord = make_car('honda', 'accord', year=1991, color='white', headlights='popup')
-console.log(my_accord)
+var instance_obj=make_car('Honda','City 2019','white')
+console.log(instance_obj)
